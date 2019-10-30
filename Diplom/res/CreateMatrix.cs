@@ -13,7 +13,7 @@ namespace Diplom.res
             Form1 form1 = new Form1();
             Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-
+            // tyt budet for
             return matrix;
         }
         public double[,] createX2()
