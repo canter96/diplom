@@ -50,7 +50,6 @@ namespace Diplom
             usingFiles.writeFile(classX4, "classX4");
             usingFiles.writeFile(classX5, "classX5");
 
-
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -67,6 +66,11 @@ namespace Diplom
             {
                 callCreateWriteClasses();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            callCreateWriteClasses();
         }
     }
 }
