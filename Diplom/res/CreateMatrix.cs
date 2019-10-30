@@ -13,11 +13,11 @@ namespace Diplom.res
             Form1 form1 = new Form1();
             Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-            for ( int j = 0; j < form1.verticalLength;j++
+            for ( int j = 0; j < form1.verticalLength;j++)
             {
-                for (int i = 0; i < form1.sourseData.Length;i++))
+                for (int i = 0; i < form1.sourseData.Length;i++)
             {
-                    matrix[j, i] = functions.getRandom(80, 101);
+                    matrix[i, j] = functions.getRandom(80, 101);
                 }    
             }
             return matrix;
@@ -31,7 +31,7 @@ namespace Diplom.res
         {
                 for (int i = 0; i < form1.sourseData.Length; i++) 
                 {
-                    matrix[j, i] = functions.getRandom(70, 91);
+                    matrix[i, j] = functions.getRandom(70, 91);
                 }
             }
             return matrix;
@@ -45,7 +45,7 @@ namespace Diplom.res
             {
                 for (int i = 0; i < form1.sourseData.Length; i++)
                 {
-                    matrix[j, i] = functions.getRandom(60, 81);
+                    matrix[i, j] = functions.getRandom(60, 81);
                 }
             }
             return matrix;
@@ -59,7 +59,7 @@ namespace Diplom.res
             {
                 for (int i = 0; i < form1.sourseData.Length; i++) 
                 {
-                    matrix[j, i] = functions.getRandom(50, 71);
+                    matrix[i, j] = functions.getRandom(50, 71);
                 }
             }
             return matrix;
@@ -73,7 +73,7 @@ namespace Diplom.res
             {
                 for (int i = 0; i < form1.sourseData.Length; i++) 
                 {
-                    matrix[j, i] = functions.getRandom(40, 61);
+                    matrix[i, j] = functions.getRandom(40, 61);
                 }
             }
             return matrix;
@@ -94,4 +94,5 @@ namespace Diplom.res
             return matrix;
         }
     }
+
 }
