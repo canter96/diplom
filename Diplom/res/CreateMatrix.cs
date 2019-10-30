@@ -13,13 +13,13 @@ namespace Diplom.res
             Form1 form1 = new Form1();
             Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-            for (int i = 0; i < form1.sourseData.Length;i++)
+            for ( int j = 0; j < form1.verticalLength;j++
             {
-                for ( int j = 0; j < form1.verticalLength;j++) {
-                    matrix[i, j] = functions.getRandom(80, 100);
+                for (int i = 0; i < form1.sourseData.Length;i++))
+            {
+                    matrix[j, i] = functions.getRandom(80, 101);
                 }    
             }
-
             return matrix;
         }
         public double[,] createX2()
@@ -27,7 +27,13 @@ namespace Diplom.res
             Form1 form1 = new Form1();
             Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-          
+            for (int j = 0; j < form1.verticalLength; j++)
+        {
+                for (int i = 0; i < form1.sourseData.Length; i++) 
+                {
+                    matrix[j, i] = functions.getRandom(70, 91);
+                }
+            }
             return matrix;
         }
         public double[,] createX3()
@@ -35,7 +41,13 @@ namespace Diplom.res
             Form1 form1 = new Form1();
             Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-        
+            for (int j = 0; j < form1.verticalLength; j++)
+            {
+                for (int i = 0; i < form1.sourseData.Length; i++)
+                {
+                    matrix[j, i] = functions.getRandom(60, 81);
+                }
+            }
             return matrix;
         }
         public double[,] createX4()
@@ -43,7 +55,13 @@ namespace Diplom.res
             Form1 form1 = new Form1();
             Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-          
+            for (int j = 0; j < form1.verticalLength; j++)
+            {
+                for (int i = 0; i < form1.sourseData.Length; i++) 
+                {
+                    matrix[j, i] = functions.getRandom(50, 71);
+                }
+            }
             return matrix;
         }
         public double[,] createX5()
@@ -51,7 +69,13 @@ namespace Diplom.res
             Form1 form1 = new Form1();
             Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-          
+            for (int j = 0; j < form1.verticalLength; j++)
+            {
+                for (int i = 0; i < form1.sourseData.Length; i++) 
+                {
+                    matrix[j, i] = functions.getRandom(40, 61);
+                }
+            }
             return matrix;
         }
         public double[,] create(int randNachalo, int randKonec)
