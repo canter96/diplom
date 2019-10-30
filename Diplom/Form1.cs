@@ -25,11 +25,12 @@ namespace Diplom
 
         Functions functions = new Functions();
         UsingFiles usingFiles = new UsingFiles();
-        MatrixX1 matrixX1 = new MatrixX1();
-        MatrixX2 matrixX2 = new MatrixX2();
-        MatrixX3 matrixX3 = new MatrixX3();
-        MatrixX4 matrixX4 = new MatrixX4();
-        MatrixX5 matrixX5 = new MatrixX5();
+        //MatrixX1 matrixX1 = new MatrixX1();
+        //MatrixX2 matrixX2 = new MatrixX2();
+        //MatrixX3 matrixX3 = new MatrixX3();
+        //MatrixX4 matrixX4 = new MatrixX4();
+        //MatrixX5 matrixX5 = new MatrixX5();
+        CreateMatrix matrix = new CreateMatrix();
 
 
         public Form1()
@@ -38,11 +39,11 @@ namespace Diplom
         }
         public void callCreateWriteClasses()
         {
-            classX1 = matrixX1.create(); 
-            classX2 = matrixX2.create(); 
-            classX3 = matrixX3.create();
-            classX4 = matrixX4.create();
-            classX5 = matrixX5.create();
+            classX1 = matrix.createX1();
+            classX2 = matrix.createX2(); 
+            classX3 = matrix.createX3();
+            classX4 = matrix.createX4();
+            classX5 = matrix.createX5();
             usingFiles.writeFile(classX1, "classX1");
             usingFiles.writeFile(classX2, "classX2");
             usingFiles.writeFile(classX3, "classX3");
@@ -55,8 +56,8 @@ namespace Diplom
         {
             if (File.Exists(usingFiles.url + "classX1" + usingFiles.format) && File.Exists(usingFiles.url + "classX2" + usingFiles.format) && File.Exists(usingFiles.url + "classX3" + usingFiles.format) && File.Exists(usingFiles.url + "classX4" + usingFiles.format) && File.Exists(usingFiles.url + "classX5" + usingFiles.format))
             {
-                classX1 = usingFiles.readFile("classX1"); 
-                classX2 = usingFiles.readFile("classX2"); 
+                classX1 = usingFiles.readFile("classX1");
+                classX2 = usingFiles.readFile("classX2");
                 classX3 = usingFiles.readFile("classX3");
                 classX4 = usingFiles.readFile("classX4");
                 classX5 = usingFiles.readFile("classX5");
