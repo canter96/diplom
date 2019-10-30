@@ -25,13 +25,7 @@ namespace Diplom
 
         Functions functions = new Functions();
         UsingFiles usingFiles = new UsingFiles();
-        //MatrixX1 matrixX1 = new MatrixX1();
-        //MatrixX2 matrixX2 = new MatrixX2();
-        //MatrixX3 matrixX3 = new MatrixX3();
-        //MatrixX4 matrixX4 = new MatrixX4();
-        //MatrixX5 matrixX5 = new MatrixX5();
         CreateMatrix matrix = new CreateMatrix();
-
 
         public Form1()
         {
@@ -44,6 +38,12 @@ namespace Diplom
             classX3 = matrix.createX3();
             classX4 = matrix.createX4();
             classX5 = matrix.createX5();
+            //classX1 = matrix.create(80,100);
+            //classX2 = matrix.create(70,90);
+            //classX3 = matrix.create(60,80);
+            //classX4 = matrix.create(50,70);
+            //classX5 = matrix.create(40,60);
+
             usingFiles.writeFile(classX1, "classX1");
             usingFiles.writeFile(classX2, "classX2");
             usingFiles.writeFile(classX3, "classX3");
