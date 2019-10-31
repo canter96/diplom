@@ -8,10 +8,11 @@ namespace Diplom.res
 {
     class CreateMatrix
     {
+        Functions functions = new Functions();
         public double[,] createX1()
         {
             Form1 form1 = new Form1();
-            Functions functions = new Functions();
+            
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
             for ( int j = 0; j < form1.verticalLength;j++)
             {
@@ -25,7 +26,7 @@ namespace Diplom.res
         public double[,] createX2()
         {
             Form1 form1 = new Form1();
-            Functions functions = new Functions();
+            
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
             for (int j = 0; j < form1.verticalLength; j++)
         {
@@ -39,7 +40,7 @@ namespace Diplom.res
         public double[,] createX3()
         {
             Form1 form1 = new Form1();
-            Functions functions = new Functions();
+            
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
             for (int j = 0; j < form1.verticalLength; j++)
             {
@@ -53,7 +54,7 @@ namespace Diplom.res
         public double[,] createX4()
         {
             Form1 form1 = new Form1();
-            Functions functions = new Functions();
+            
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
             for (int j = 0; j < form1.verticalLength; j++)
             {
@@ -67,7 +68,7 @@ namespace Diplom.res
         public double[,] createX5()
         {
             Form1 form1 = new Form1();
-            Functions functions = new Functions();
+            
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
             for (int j = 0; j < form1.verticalLength; j++)
             {
