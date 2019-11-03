@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathNet.Numerics.Distributions;
 
 namespace Diplom.res
 {
@@ -79,17 +80,21 @@ namespace Diplom.res
             }
             return matrix;
         }
-        public double[,] create(int randNachalo, int randKonec)
+        public double[,] create(int centr, int vidhilenna)
         {
             Form1 form1 = new Form1();
-            Functions functions = new Functions();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-            for (int j = 0; j < form1.verticalLength; j += 1)
+            //double mean = 100;
+            //double stdDev = 10;
+            MathNet.Numerics.Distributions.Normal normalRandom = new Normal(centr, vidhilenna);
+            
+            for (int j = 0; j < form1.verticalLength; j ++)
             {
                 for (int i = 0; i < form1.sourseData.Length; i++)
                 {
-                    int random = functions.getRandom(randNachalo, randKonec);
-                    matrix[i, j] = random;
+                    //int random = functions.getRandom(randNachalo, randKonec);
+                    int randomGaussianValue =Convert.ToInt32(normalRandom.Sample());
+                    matrix[i, j] = randomGaussianValue;
                 }
             }
             return matrix;

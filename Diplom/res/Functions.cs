@@ -243,18 +243,6 @@ namespace Diplom.res
             }
             return k_mid;
         }
-        public int  findindex(double[] masiv, double value)
-        {
-            int ind = 0;
-            for(int i = 1; i < masiv.Length; i++)
-            {
-                if (value == masiv[i])
-                {
-                   
-                    ind = i;
-                }
-            }
-            return ind;
-        }
+        
     }
 }

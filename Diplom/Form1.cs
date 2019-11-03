@@ -34,16 +34,16 @@ namespace Diplom
         }
         public void callCreateWriteClasses()
         {
-            classX1 = matrix.createX1();
-            classX2 = matrix.createX2(); 
-            classX3 = matrix.createX3();
-            classX4 = matrix.createX4();
-            classX5 = matrix.createX5();
-            //classX1 = matrix.create(80,100);
-            //classX2 = matrix.create(70,90);
-            //classX3 = matrix.create(60,80);
-            //classX4 = matrix.create(50,70);
-            //classX5 = matrix.create(40,60);
+            //classX1 = matrix.createX1();
+            //classX2 = matrix.createX2(); 
+            //classX3 = matrix.createX3();
+            //classX4 = matrix.createX4();
+            //classX5 = matrix.createX5();
+            classX1 = matrix.create(90, 10);
+            classX2 = matrix.create(80, 10);
+            classX3 = matrix.create(70, 10);
+            classX4 = matrix.create(60, 10);
+            classX5 = matrix.create(50, 10);
 
             usingFiles.writeFile(classX1, "classX1");
             usingFiles.writeFile(classX2, "classX2");
