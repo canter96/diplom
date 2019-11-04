@@ -47,6 +47,29 @@ namespace Diplom.res
             return retArray;
         }
 
+        public double[] findLimit(double[] array, string which__one, double delta, int oznaka)
+        { //поиск верхнего, нижнего допуска
+            double[] retArray = new double[array.Length];
+            if (which__one == "Up")
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    retArray[i] = array[i];
+                }
+                retArray[oznaka] = retArray[oznaka] + delta;
+            }
+            if (which__one == "Down")
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    retArray[i] = array[i];
+                }
+
+                retArray[oznaka] = retArray[oznaka] - delta;
+            }
+            return retArray;
+        }
+
         public double[,] BinMatrix(double[,] matrix, double[] dopuskDownn, double[] dopuskUpp)
         { //Перевод в бинарную матрицу
             double[,] Bin = new double[matrix.GetLength(0), matrix.GetLength(1)];
@@ -140,6 +163,21 @@ namespace Diplom.res
                 }
             }
             return max;
+        }
+
+        public double FindMaxInxex(double[] arr)
+        {
+            double max = arr[0];
+            double maxIndex = 1;
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] > max)
+                {
+                    max = arr[i];
+                    maxIndex = i;
+                }
+            }
+            return maxIndex;
         }
 
         public double FindMinCount(double[] arr)
@@ -243,6 +281,6 @@ namespace Diplom.res
             }
             return k_mid;
         }
-        
+
     }
 }

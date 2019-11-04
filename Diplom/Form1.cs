@@ -23,6 +23,11 @@ namespace Diplom
         public double ro = 0.5d;
         public int verticalLength = 40;
         public double[] sourseData = new double[120];
+        public static int countClasses = 5;
+        public static double Length;
+
+        public static bool parallel = false;
+        public static bool consistent = false;
 
         Functions functions = new Functions();
         UsingFiles usingFiles = new UsingFiles();
@@ -76,23 +81,62 @@ namespace Diplom
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OutputGraphics outputGraphics = new OutputGraphics();
-            outputGraphics.Text = "Графіки залежності критерію Кульбака від радіусів контейнерів класів розпізнавання";
+            if (parallel == false && consistent == false)
+            {
+                OutputGraphics outputGraphics = new OutputGraphics();
+                outputGraphics.Text = "Графіки залежності критерію Кульбака від радіусів контейнерів класів розпізнавання";
 
-            BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4,classX5);
-            bazAlgoritm.alg(10d);
-            bazAlgoritm.algFind_K_KFE();
+                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4, classX5);
+                bazAlgoritm.alg(10d);
+                bazAlgoritm.algFind_K_KFE();
 
-            outputGraphics.main(outputGraphics.chart1, bazAlgoritm.E_X1, "Кульбак", 1, bazAlgoritm.k1_X1, bazAlgoritm.k2_X1);
-            outputGraphics.main(outputGraphics.chart2, bazAlgoritm.E_X2, "Кульбак", 2, bazAlgoritm.k1_X2, bazAlgoritm.k2_X2);
-            outputGraphics.main(outputGraphics.chart3, bazAlgoritm.E_X3, "Кульбак", 3, bazAlgoritm.k1_X3, bazAlgoritm.k2_X3);
-            outputGraphics.main(outputGraphics.chart4, bazAlgoritm.E_X4, "Кульбак", 4, bazAlgoritm.k1_X4, bazAlgoritm.k2_X4);
-            outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
-            outputGraphics.Show();
+                outputGraphics.main(outputGraphics.chart1, bazAlgoritm.E_X1, "Кульбак", 1, bazAlgoritm.k1_X1, bazAlgoritm.k2_X1);
+                outputGraphics.main(outputGraphics.chart2, bazAlgoritm.E_X2, "Кульбак", 2, bazAlgoritm.k1_X2, bazAlgoritm.k2_X2);
+                outputGraphics.main(outputGraphics.chart3, bazAlgoritm.E_X3, "Кульбак", 3, bazAlgoritm.k1_X3, bazAlgoritm.k2_X3);
+                outputGraphics.main(outputGraphics.chart4, bazAlgoritm.E_X4, "Кульбак", 4, bazAlgoritm.k1_X4, bazAlgoritm.k2_X4);
+                outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
+                outputGraphics.Show();
+            }
+            else if (parallel == true)
+            {
+                OutputGraphics outputGraphics = new OutputGraphics();
+                outputGraphics.Text = "Графіки одержані при оптимальному значенні дельтая";
+
+                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4, classX5);
+                bazAlgoritm.alg(OutputGraphics.op_delta);
+                bazAlgoritm.algFind_K_KFE();
+
+                outputGraphics.main(outputGraphics.chart1, bazAlgoritm.E_X1, "Кульбак", 1, bazAlgoritm.k1_X1, bazAlgoritm.k2_X1);
+                outputGraphics.main(outputGraphics.chart2, bazAlgoritm.E_X2, "Кульбак", 2, bazAlgoritm.k1_X2, bazAlgoritm.k2_X2);
+                outputGraphics.main(outputGraphics.chart3, bazAlgoritm.E_X3, "Кульбак", 3, bazAlgoritm.k1_X3, bazAlgoritm.k2_X3);
+                outputGraphics.main(outputGraphics.chart4, bazAlgoritm.E_X4, "Кульбак", 4, bazAlgoritm.k1_X4, bazAlgoritm.k2_X4);
+                outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
+                outputGraphics.Show();
+                parallel = false;
+            }
+            else if (consistent == true)
+            {
+                OutputGraphics outputGraphics = new OutputGraphics();
+                outputGraphics.Text = "Графіки після послідовної оптимізації";
+
+                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4, classX5);
+                bazAlgoritm.alg("consistent");
+                bazAlgoritm.algFind_K_KFE();
+
+                outputGraphics.main(outputGraphics.chart1, bazAlgoritm.E_X1, "Кульбак", 1, bazAlgoritm.k1_X1, bazAlgoritm.k2_X1);
+                outputGraphics.main(outputGraphics.chart2, bazAlgoritm.E_X2, "Кульбак", 2, bazAlgoritm.k1_X2, bazAlgoritm.k2_X2);
+                outputGraphics.main(outputGraphics.chart3, bazAlgoritm.E_X3, "Кульбак", 3, bazAlgoritm.k1_X3, bazAlgoritm.k2_X3);
+                outputGraphics.main(outputGraphics.chart4, bazAlgoritm.E_X4, "Кульбак", 4, bazAlgoritm.k1_X4, bazAlgoritm.k2_X4);
+                outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
+                outputGraphics.Show();
+                consistent = false;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            parallel = true;
+            consistent = false;
             OutputGraphics outputGraphics = new OutputGraphics();
             outputGraphics.Text = "Паралельна оптимізація КД";
 
@@ -103,6 +147,24 @@ namespace Diplom
             outputGraphics.chart3.Series.Clear();
             outputGraphics.chart4.Series.Clear();
             outputGraphics.main(outputGraphics.chart1, optimization.E, "Паралельна оптимізація КД", 4, optimization.k1, optimization.k2);
+            outputGraphics.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            consistent = true;
+            parallel = false;
+            OutputGraphics outputGraphics = new OutputGraphics();
+            outputGraphics.Text = "Послідовна оптимізація КД";
+
+            Optimization optimization = new Optimization(classX1, classX2, classX3, classX4, classX5);
+            optimization.main("consistent");
+
+            outputGraphics.chart2.Series.Clear();
+            outputGraphics.chart3.Series.Clear();
+            outputGraphics.chart4.Series.Clear();
+
+            outputGraphics.GetGraph(outputGraphics.chart1, optimization.E_consistent_all, "Послідовна оптимізація КД", 4);
             outputGraphics.Show();
         }
     }

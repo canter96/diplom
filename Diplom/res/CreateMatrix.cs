@@ -93,7 +93,7 @@ namespace Diplom.res
                 for (int i = 0; i < form1.sourseData.Length; i++)
                 {
                     //int random = functions.getRandom(randNachalo, randKonec);
-                    int randomGaussianValue =Convert.ToInt32(normalRandom.Sample());
+                    int randomGaussianValue = Convert.ToInt32(normalRandom.Sample());
                     matrix[i, j] = randomGaussianValue;
                 }
             }

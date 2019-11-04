@@ -14,11 +14,17 @@ namespace Diplom.res
         public double[,] classX4;
         public double[,] classX5;
 
+        static double[] limitUpStart;
+        static double[] limitDownStart;
+        public static double[] limitUpSave;
+        public static double[] limitDownSave;
+        public static int prog = 0;
+
         public double[] meanValues;
 
 
-        double[] limitUp;
-        double[] limitDown;
+        public double[] limitUp;
+        public double[] limitDown;
         double[,] binX1;
         double[,] binX2;
         double[,] binX3;
@@ -83,30 +89,113 @@ namespace Diplom.res
         public void alg(double delta)
         {
             meanValues = functions.findMean(classX1); //Поиск среднего значения
-            algMain(delta);
-        }
-
-        //public void alg(double delta, int baseClass)
-        //{
-        //    switch (baseClass)
-        //    {
-        //        case 0:
-        //            meanValues = functions.findMean(classA);
-        //            break;
-        //        case 1:
-        //            meanValues = functions.findMean(classB);
-        //            break;
-        //        case 2:
-        //            meanValues = functions.findMean(classC);
-        //            break;
-        //    }
-        //    algMain(delta);
-        //}
-
-        private void algMain(double delta)
-        {
             limitUp = functions.findLimit(meanValues, "Up", delta); //верехний допуск по среднем значении classA
             limitDown = functions.findLimit(meanValues, "Down", delta); //нижний допуск по среднем значении classA
+
+            //limitUp[0] = limitUp[0] + 14;
+            //limitDown[0] = limitDown[0] - 14;
+            //limitUp[1] = limitUp[1] + 5;
+            //limitDown[1] = limitDown[1] - 5;
+            //limitUp[2] = limitUp[2] + 28;
+            //limitDown[2] = limitDown[2] - 28;
+            //limitUp[3] = limitUp[3] + 4;
+            //limitDown[3] = limitDown[3] - 4;
+            //limitUp[4] = limitUp[4] + 4;
+            //limitDown[4] = limitDown[4] - 4;
+            //limitUp[5] = limitUp[5] + 4;
+            //limitDown[5] = limitDown[5] - 4;
+
+
+            algMain();
+        }
+
+        public void start()
+        {
+            meanValues = functions.findMean(classX1); //Поиск среднего значения
+            limitUpStart = functions.findLimit(meanValues, "Up", OutputGraphics.op_delta); //верехний допуск по среднем значении classA
+            limitDownStart = functions.findLimit(meanValues, "Down", OutputGraphics.op_delta); //нижний допуск по среднем значении classA
+            limitUp = new double[meanValues.Length];
+            limitDown = new double[meanValues.Length];
+
+            limitUpSave = new double[meanValues.Length];
+            limitDownSave = new double[meanValues.Length];
+
+            for (int i = 0; i < meanValues.Length; i++)
+            {
+                limitUp[i] = limitUpStart[i];
+                limitDown[i] = limitDownStart[i];
+
+                limitUpSave[i] = limitUpStart[i];
+                limitDownSave[i] = limitDownStart[i];
+            }
+
+
+        }
+
+        public void SaveLimit()
+        {
+            //limitUpSave = new double[meanValues.Length];
+            //limitDownSave = new double[meanValues.Length];
+            for (int i = 0; i < Form1.Length; i++)
+            {
+                limitUpSave[i] = limitUp[i];
+                limitDownSave[i] = limitDown[i];
+            }
+
+        }
+        public void alg(int oznaka, int i, double optDelta, int progon)
+        {
+            if (prog != progon)
+            {
+                SaveLimit();
+            }
+
+            if (oznaka != 0)
+            {
+                limitUp[oznaka - 1] = limitUpSave[oznaka - 1] + optDelta;
+                limitDown[oznaka - 1] = limitDownSave[oznaka - 1] - optDelta;
+            }
+
+            limitUp[oznaka] = limitUpSave[oznaka] + i;
+            limitDown[oznaka] = limitDownSave[oznaka] - i;
+
+            // if (oznaka != 0) {
+            //    limitUp[oznaka - 1] = limitUpStart[oznaka - 1] + optDelta;
+            //    limitDown[oznaka - 1] = limitDownStart[oznaka - 1] - optDelta;
+            //}
+
+            //limitUp[oznaka] = limitUpStart[oznaka] + i;
+            //limitDown[oznaka] = limitDownStart[oznaka] - i;
+
+            algMain();
+
+            prog = progon;
+        }
+
+        public void alg(string TYPE)
+        {
+            if (TYPE == "consistent")
+            {
+                meanValues = functions.findMean(classX1); //Поиск среднего значения
+                limitUp = new double[meanValues.Length];
+                limitDown = new double[meanValues.Length];
+
+
+                for (int i = 0; i < Form1.Length; i++)
+                {
+                    limitUp[i] = limitUpSave[i];
+                    limitDown[i] = limitDownSave[i];
+                }
+
+
+            }
+            algMain();
+        }
+
+        private void algMain()
+        {
+            //limitUp = functions.findLimit(meanValues, "Up", delta); //верехний допуск по среднем значении classA
+            //limitDown = functions.findLimit(meanValues, "Down", delta); //нижний допуск по среднем значении classA
 
             binX1 = functions.BinMatrix(classX1, limitDown, limitUp);
             binX2 = functions.BinMatrix(classX2, limitDown, limitUp);
