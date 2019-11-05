@@ -6,9 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+
 
 namespace Diplom
 {
@@ -36,6 +38,7 @@ namespace Diplom
         public Form1()
         {
             InitializeComponent();
+            Length = sourseData.Length;
         }
         public void callCreateWriteClasses()
         {
@@ -58,7 +61,7 @@ namespace Diplom
 
         }
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {           
             if (File.Exists(usingFiles.url + "classX1" + usingFiles.format) && File.Exists(usingFiles.url + "classX2" + usingFiles.format) && File.Exists(usingFiles.url + "classX3" + usingFiles.format) && File.Exists(usingFiles.url + "classX4" + usingFiles.format) && File.Exists(usingFiles.url + "classX5" + usingFiles.format))
             {
                 classX1 = usingFiles.readFile("classX1");
@@ -149,8 +152,7 @@ namespace Diplom
             outputGraphics.main(outputGraphics.chart1, optimization.E, "Паралельна оптимізація КД", 4, optimization.k1, optimization.k2);
             outputGraphics.Show();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        async void consistentAsync()
         {
             consistent = true;
             parallel = false;
@@ -158,14 +160,19 @@ namespace Diplom
             outputGraphics.Text = "Послідовна оптимізація КД";
 
             Optimization optimization = new Optimization(classX1, classX2, classX3, classX4, classX5);
-            optimization.main("consistent");
-
+            await Task.Run(() => {
+                optimization.main("consistent");             
+            });
             outputGraphics.chart2.Series.Clear();
             outputGraphics.chart3.Series.Clear();
             outputGraphics.chart4.Series.Clear();
 
             outputGraphics.GetGraph(outputGraphics.chart1, optimization.E_consistent_all, "Послідовна оптимізація КД", 4);
             outputGraphics.Show();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            consistentAsync();
         }
     }
 }

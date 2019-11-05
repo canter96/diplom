@@ -106,7 +106,7 @@ namespace Diplom.res
                                 E_consistent_3[oznaka] = E_max;
                                 break;
 
-                        }
+                        }                       
                     }
 
                     limitUp[form1.sourseData.Length - 1] = limitUpSave[form1.sourseData.Length - 1] + E_max_index;
@@ -222,6 +222,14 @@ namespace Diplom.res
             //    }
             //}
             //prevE = i != 0 ? E[i - 1] : 0;
+            if (k1[i] >= 0.5 && k2[i] < 0.5)
+            {
+                if (E[i] > E_max)
+                {
+                    E_max = E[i];
+                    E_max_index = i;
+                }
+            }
         }
     }
 }
