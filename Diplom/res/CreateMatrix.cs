@@ -87,13 +87,19 @@ namespace Diplom.res
             //double mean = 100;
             //double stdDev = 10;
             MathNet.Numerics.Distributions.Normal normalRandom = new Normal(centr, vidhilenna);
-            
+            int min = centr - vidhilenna;
+            int max = centr + vidhilenna;
             for (int j = 0; j < form1.verticalLength; j ++)
             {
                 for (int i = 0; i < form1.sourseData.Length; i++)
                 {
                     //int random = functions.getRandom(randNachalo, randKonec);
                     int randomGaussianValue = Convert.ToInt32(normalRandom.Sample());
+                    //while (randomGaussianValue < min | randomGaussianValue > max)
+                    //{
+                    //    randomGaussianValue = Convert.ToInt32(normalRandom.Sample());
+                    //}
+
                     matrix[i, j] = randomGaussianValue;
                 }
             }

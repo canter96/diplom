@@ -21,7 +21,7 @@ namespace Diplom
         public double[,] classX2;
         public double[,] classX3;
         public double[,] classX4;
-        public double[,] classX5;
+        //public double[,] classX5;
         public double ro = 0.5d;
         public int verticalLength = 40;
         public double[] sourseData = new double[120];
@@ -47,10 +47,10 @@ namespace Diplom
             //classX3 = matrix.createX3();
             //classX4 = matrix.createX4();
             //classX5 = matrix.createX5();
-            classX1 = matrix.create(90, 15);
-            classX2 = matrix.create(80, 15);
-            classX3 = matrix.create(70, 15);
-            classX4 = matrix.create(60, 15);
+            classX1 = matrix.create(90, 10);
+            classX2 = matrix.create(80, 10);
+            classX3 = matrix.create(70, 10);
+            classX4 = matrix.create(60, 10);
             //classX5 = matrix.create(50, 10);
 
             usingFiles.writeFile(classX1, "classX1");
