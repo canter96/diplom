@@ -25,7 +25,7 @@ namespace Diplom
         public double ro = 0.5d;
         public int verticalLength = 40;
         public double[] sourseData = new double[120];
-        public static int countClasses = 5;
+        public static int countClasses = 4;
         public static double Length;
 
         public static bool parallel = false;
@@ -47,28 +47,28 @@ namespace Diplom
             //classX3 = matrix.createX3();
             //classX4 = matrix.createX4();
             //classX5 = matrix.createX5();
-            classX1 = matrix.create(90, 10);
-            classX2 = matrix.create(80, 10);
-            classX3 = matrix.create(70, 10);
-            classX4 = matrix.create(60, 10);
-            classX5 = matrix.create(50, 10);
+            classX1 = matrix.create(90, 15);
+            classX2 = matrix.create(80, 15);
+            classX3 = matrix.create(70, 15);
+            classX4 = matrix.create(60, 15);
+            //classX5 = matrix.create(50, 10);
 
             usingFiles.writeFile(classX1, "classX1");
             usingFiles.writeFile(classX2, "classX2");
             usingFiles.writeFile(classX3, "classX3");
             usingFiles.writeFile(classX4, "classX4");
-            usingFiles.writeFile(classX5, "classX5");
+            //usingFiles.writeFile(classX5, "classX5");
 
         }
         private void Form1_Load(object sender, EventArgs e)
         {           
-            if (File.Exists(usingFiles.url + "classX1" + usingFiles.format) && File.Exists(usingFiles.url + "classX2" + usingFiles.format) && File.Exists(usingFiles.url + "classX3" + usingFiles.format) && File.Exists(usingFiles.url + "classX4" + usingFiles.format) && File.Exists(usingFiles.url + "classX5" + usingFiles.format))
+            if (File.Exists(usingFiles.url + "classX1" + usingFiles.format) && File.Exists(usingFiles.url + "classX2" + usingFiles.format) && File.Exists(usingFiles.url + "classX3" + usingFiles.format) && File.Exists(usingFiles.url + "classX4" + usingFiles.format))
             {
                 classX1 = usingFiles.readFile("classX1");
                 classX2 = usingFiles.readFile("classX2");
                 classX3 = usingFiles.readFile("classX3");
                 classX4 = usingFiles.readFile("classX4");
-                classX5 = usingFiles.readFile("classX5");
+                //classX5 = usingFiles.readFile("classX5");
             }
 
             else
@@ -89,7 +89,7 @@ namespace Diplom
                 OutputGraphics outputGraphics = new OutputGraphics();
                 outputGraphics.Text = "Графіки залежності критерію Кульбака від радіусів контейнерів класів розпізнавання";
 
-                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4, classX5);
+                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4);
                 bazAlgoritm.alg(10d);
                 bazAlgoritm.algFind_K_KFE();
 
@@ -97,7 +97,7 @@ namespace Diplom
                 outputGraphics.main(outputGraphics.chart2, bazAlgoritm.E_X2, "Кульбак", 2, bazAlgoritm.k1_X2, bazAlgoritm.k2_X2);
                 outputGraphics.main(outputGraphics.chart3, bazAlgoritm.E_X3, "Кульбак", 3, bazAlgoritm.k1_X3, bazAlgoritm.k2_X3);
                 outputGraphics.main(outputGraphics.chart4, bazAlgoritm.E_X4, "Кульбак", 4, bazAlgoritm.k1_X4, bazAlgoritm.k2_X4);
-                outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
+                //outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
                 outputGraphics.Show();
             }
             else if (parallel == true)
@@ -105,7 +105,7 @@ namespace Diplom
                 OutputGraphics outputGraphics = new OutputGraphics();
                 outputGraphics.Text = "Графіки одержані при оптимальному значенні дельтая";
 
-                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4, classX5);
+                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4);
                 bazAlgoritm.alg(OutputGraphics.op_delta);
                 bazAlgoritm.algFind_K_KFE();
 
@@ -113,7 +113,7 @@ namespace Diplom
                 outputGraphics.main(outputGraphics.chart2, bazAlgoritm.E_X2, "Кульбак", 2, bazAlgoritm.k1_X2, bazAlgoritm.k2_X2);
                 outputGraphics.main(outputGraphics.chart3, bazAlgoritm.E_X3, "Кульбак", 3, bazAlgoritm.k1_X3, bazAlgoritm.k2_X3);
                 outputGraphics.main(outputGraphics.chart4, bazAlgoritm.E_X4, "Кульбак", 4, bazAlgoritm.k1_X4, bazAlgoritm.k2_X4);
-                outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
+                //outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
                 outputGraphics.Show();
                 parallel = false;
             }
@@ -122,7 +122,7 @@ namespace Diplom
                 OutputGraphics outputGraphics = new OutputGraphics();
                 outputGraphics.Text = "Графіки після послідовної оптимізації";
 
-                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4, classX5);
+                BazAlgoritm bazAlgoritm = new BazAlgoritm(classX1, classX2, classX3, classX4);
                 bazAlgoritm.alg("consistent");
                 bazAlgoritm.algFind_K_KFE();
 
@@ -130,7 +130,7 @@ namespace Diplom
                 outputGraphics.main(outputGraphics.chart2, bazAlgoritm.E_X2, "Кульбак", 2, bazAlgoritm.k1_X2, bazAlgoritm.k2_X2);
                 outputGraphics.main(outputGraphics.chart3, bazAlgoritm.E_X3, "Кульбак", 3, bazAlgoritm.k1_X3, bazAlgoritm.k2_X3);
                 outputGraphics.main(outputGraphics.chart4, bazAlgoritm.E_X4, "Кульбак", 4, bazAlgoritm.k1_X4, bazAlgoritm.k2_X4);
-                outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
+                //outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
                 outputGraphics.Show();
                 consistent = false;
             }
@@ -143,7 +143,7 @@ namespace Diplom
             OutputGraphics outputGraphics = new OutputGraphics();
             outputGraphics.Text = "Паралельна оптимізація КД";
 
-            Optimization optimization = new Optimization(classX1, classX2, classX3, classX4, classX5);
+            Optimization optimization = new Optimization(classX1, classX2, classX3, classX4);
             optimization.main("parallel");
 
             outputGraphics.chart2.Series.Clear();
@@ -159,7 +159,7 @@ namespace Diplom
             OutputGraphics outputGraphics = new OutputGraphics();
             outputGraphics.Text = "Послідовна оптимізація КД";
 
-            Optimization optimization = new Optimization(classX1, classX2, classX3, classX4, classX5);
+            Optimization optimization = new Optimization(classX1, classX2, classX3, classX4);
             await Task.Run(() => {
                 optimization.main("consistent");             
             });
