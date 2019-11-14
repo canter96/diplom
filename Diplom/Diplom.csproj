@@ -68,8 +68,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="res\BazAlgoritm.cs" />
     <Compile Include="res\CreateMatrix.cs" />
+    <Compile Include="res\Examen.cs" />
     <Compile Include="res\Functions.cs" />
     <Compile Include="res\Optimization.cs" />
+    <Compile Include="res\OutInTextBox.cs" />
     <Compile Include="res\UsingFiles.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

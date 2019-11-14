@@ -84,8 +84,6 @@ namespace Diplom.res
         {
             Form1 form1 = new Form1();
             double[,] matrix = new double[form1.sourseData.Length, form1.verticalLength];
-            //double mean = 100;
-            //double stdDev = 10;
             MathNet.Numerics.Distributions.Normal normalRandom = new Normal(centr, vidhilenna);
             int min = centr - vidhilenna;
             int max = centr + vidhilenna;

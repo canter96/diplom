@@ -32,13 +32,13 @@ namespace Diplom.res
         //double[,] binX5;
 
         double[] meanBinX1;
-        double[] EtalVecBinX1;
+        protected double[] EtalVecBinX1;
         double[] meanBinX2;
-        double[] EtalVecBinX2;
+        protected double[] EtalVecBinX2;
         double[] meanBinX3;
-        double[] EtalVecBinX3;
+        protected double[] EtalVecBinX3;
         double[] meanBinX4;
-        double[] EtalVecBinX4;
+        protected double[] EtalVecBinX4;
         //double[] meanBinX5;
         //double[] EtalVecBinX5;
 
