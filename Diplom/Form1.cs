@@ -182,7 +182,7 @@ namespace Diplom
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Examen examen = new Examen(classX1, classX2, classX3, classX4, classX2);
+            Examen examen = new Examen(classX1, classX2, classX3, classX4, classX1);
         }
     }
 }

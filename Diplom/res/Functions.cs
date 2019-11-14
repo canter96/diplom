@@ -182,7 +182,7 @@ namespace Diplom.res
         public double FindMaxInxex(double[] arr)
         {
             double max = arr[0];
-            double maxIndex = 1;
+            double maxIndex = 0;
             for (int i = 1; i < arr.Length; i++)
             {
                 if (arr[i] > max)
