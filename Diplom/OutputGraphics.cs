@@ -97,6 +97,7 @@ namespace Diplom
             r = radius + ";" + r;
             Series seriesRadius = new Series($"Радиус = {r}");
             Series seriesmax = new Series($"Оптимальный радиус = {max}");
+            Series seriesMaxE = new Series($"КФЕ max= {maxgr}");
 
             chart.Series.Add(seriesNumber);
             chart.Series.Add(seriesFirstImage1);
@@ -104,6 +105,7 @@ namespace Diplom
             chart.Series.Add(seriesFirstImage3);
             chart.Series.Add(seriesmax);
             chart.Series.Add(seriesRadius);
+            chart.Series.Add(seriesMaxE);
 
             radius = 0.0;
             if (Form1.parallel == true || Form1.consistent == true)
