@@ -114,9 +114,6 @@ namespace Diplom
         public void GetGraph(Chart chart, double[] ToGraph, string name, int number)
         {
             Form1 form1 = new Form1();
-            string max = "";
-            string r = "";
-            double radius = 0.0;
 
             chart.Series.Clear();
             chart.BorderlineColor = Color.Black;
@@ -139,42 +136,21 @@ namespace Diplom
             seriesFirstImage1.Color = Color.Black;
             seriesFirstImage1.BorderWidth = 2;
 
-            Series seriesFirstImage2 = new Series("Робоча область");
-            seriesFirstImage2.ChartType = SeriesChartType.Area;
-            seriesFirstImage2.Color = Color.LightGray;
-
-            Series seriesFirstImage3 = new Series("Оптимальный радиус");
-            seriesFirstImage3.ChartType = SeriesChartType.Line;
-            seriesFirstImage3.Color = Color.Blue;
-            seriesFirstImage3.BorderWidth = 2;
-
-            double temp = 0.0;
             double maxgr = 0d;
-            int maxEl = 0;
             for (int i = 0; i < ToGraph.Length; i++)
             {
                 seriesFirstImage1.Points.AddXY(i, ToGraph[i]);
+                if (ToGraph[i] > maxgr)
+                {
+                    maxgr = ToGraph[i];
+                }
             }
-            seriesFirstImage3.Points.AddXY(maxEl, 0);
-            seriesFirstImage3.Points.AddXY(maxEl, maxgr);
-            seriesFirstImage3.Points.AddXY(maxEl, 0);
-            max = maxEl + ";" + max;
-            r = radius + ";" + r;
-            Series seriesRadius = new Series($"Радиус = {r}");
-            Series seriesmax = new Series($"Оптимальный радиус = {form1.sourseData.Length}");
+
+            Series seriesMaxE = new Series($"КФЕ max= {maxgr}");
 
             chart.Series.Add(seriesNumber);
             chart.Series.Add(seriesFirstImage1);
-            chart.Series.Add(seriesFirstImage2);
-            chart.Series.Add(seriesFirstImage3);
-            chart.Series.Add(seriesmax);
-            chart.Series.Add(seriesRadius);
-
-            radius = 0.0;
-            if (Form1.parallel == true || Form1.consistent == true)
-            {
-                op_delta = maxEl;
-            }
+            chart.Series.Add(seriesMaxE);
         }
         private void chart2_Click(object sender, EventArgs e)
         {
