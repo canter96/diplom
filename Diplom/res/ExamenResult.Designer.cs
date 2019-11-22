@@ -79,7 +79,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 369);
+            this.button1.Location = new System.Drawing.Point(12, 290);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 36);
             this.button1.TabIndex = 5;
@@ -134,7 +134,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 369);
+            this.button2.Location = new System.Drawing.Point(184, 290);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 36);
             this.button2.TabIndex = 11;
@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 417);
+            this.ClientSize = new System.Drawing.Size(325, 343);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -160,7 +160,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "ExamenResult";
-            this.Text = "ExamenResult";
+            this.Text = "Екзамен";
             this.Load += new System.EventHandler(this.ExamenResult_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
