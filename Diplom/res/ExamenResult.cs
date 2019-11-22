@@ -17,6 +17,7 @@ namespace Diplom.res
         public double[,] classX2;
         public double[,] classX3;
         public double[,] classX4;
+        public double[,] classExamen;
         public ExamenResult()
         {
             InitializeComponent();
@@ -33,11 +34,12 @@ namespace Diplom.res
             classX2 = usingFiles.readFile("classX2");
             classX3 = usingFiles.readFile("classX3");
             classX4 = usingFiles.readFile("classX4");
+            classExamen = usingFiles.readFile("classExamen");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Examen examen = new Examen(classX1, classX2, classX3, classX4, classX1);
+            Examen examen = new Examen(classX1, classX2, classX3, classX4, classExamen);
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -21,7 +21,7 @@ namespace Diplom
         public double[,] classX2;
         public double[,] classX3;
         public double[,] classX4;
-        //public double[,] classX5;
+        public double[,] classExamen;
         public double ro = 0.5d;
         public int verticalLength = 40;
         public double[] sourseData = new double[120];
@@ -51,13 +51,14 @@ namespace Diplom
             classX2 = matrix.create(80, 10);
             classX3 = matrix.create(70, 10);
             classX4 = matrix.create(60, 10);
-            //classX5 = matrix.create(50, 10);
+            classExamen= matrix.create(80, 10);
+            
 
             usingFiles.writeFile(classX1, "classX1");
             usingFiles.writeFile(classX2, "classX2");
             usingFiles.writeFile(classX3, "classX3");
             usingFiles.writeFile(classX4, "classX4");
-            //usingFiles.writeFile(classX5, "classX5");
+            usingFiles.writeFile(classExamen, "classExamen");
 
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -67,13 +68,13 @@ namespace Diplom
             //OutInTextBox.txt3 = textBox3;
             //OutInTextBox.txt4 = textBox4;
             //OutInTextBox.txt5 = textBox5;
-            if (File.Exists(usingFiles.url + "classX1" + usingFiles.format) && File.Exists(usingFiles.url + "classX2" + usingFiles.format) && File.Exists(usingFiles.url + "classX3" + usingFiles.format) && File.Exists(usingFiles.url + "classX4" + usingFiles.format))
+            if (File.Exists(usingFiles.url + "classX1" + usingFiles.format) && File.Exists(usingFiles.url + "classX2" + usingFiles.format) && File.Exists(usingFiles.url + "classX3" + usingFiles.format) && File.Exists(usingFiles.url + "classX4" + usingFiles.format) && File.Exists(usingFiles.url + "classExamen" + usingFiles.format))
             {
                 classX1 = usingFiles.readFile("classX1");
                 classX2 = usingFiles.readFile("classX2");
                 classX3 = usingFiles.readFile("classX3");
                 classX4 = usingFiles.readFile("classX4");
-                //classX5 = usingFiles.readFile("classX5");
+                classExamen = usingFiles.readFile("classExamen");
             }
 
             else
