@@ -62,11 +62,11 @@ namespace Diplom
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            OutInTextBox.txt1 = textBox1;
-            OutInTextBox.txt2 = textBox2;
-            OutInTextBox.txt3 = textBox3;
-            OutInTextBox.txt4 = textBox4;
-            OutInTextBox.txt5 = textBox5;
+            //OutInTextBox.txt1 = textBox1;
+            //OutInTextBox.txt2 = textBox2;
+            //OutInTextBox.txt3 = textBox3;
+            //OutInTextBox.txt4 = textBox4;
+            //OutInTextBox.txt5 = textBox5;
             if (File.Exists(usingFiles.url + "classX1" + usingFiles.format) && File.Exists(usingFiles.url + "classX2" + usingFiles.format) && File.Exists(usingFiles.url + "classX3" + usingFiles.format) && File.Exists(usingFiles.url + "classX4" + usingFiles.format))
             {
                 classX1 = usingFiles.readFile("classX1");
@@ -182,7 +182,9 @@ namespace Diplom
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Examen examen = new Examen(classX1, classX2, classX3, classX4, classX1);
+            //Examen examen = new Examen(classX1, classX2, classX3, classX4, classX1);
+            ExamenResult examenResult = new ExamenResult();
+            examenResult.Show();
         }
     }
 }

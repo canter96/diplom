@@ -13,6 +13,5 @@ namespace Diplom.res
         public static System.Windows.Forms.TextBox txt3 = new System.Windows.Forms.TextBox();
         public static System.Windows.Forms.TextBox txt4 = new System.Windows.Forms.TextBox();
         public static System.Windows.Forms.TextBox txt5 = new System.Windows.Forms.TextBox();
-        
     }
 }

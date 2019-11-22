@@ -69,6 +69,12 @@
     <Compile Include="res\BazAlgoritm.cs" />
     <Compile Include="res\CreateMatrix.cs" />
     <Compile Include="res\Examen.cs" />
+    <Compile Include="res\ExamenResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="res\ExamenResult.Designer.cs">
+      <DependentUpon>ExamenResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="res\Functions.cs" />
     <Compile Include="res\Optimization.cs" />
     <Compile Include="res\OutInTextBox.cs" />
@@ -88,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="res\ExamenResult.resx">
+      <DependentUpon>ExamenResult.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
