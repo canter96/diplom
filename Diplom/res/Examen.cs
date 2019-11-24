@@ -27,7 +27,7 @@ namespace Diplom.res
 
         public Examen(double[,] classX1, double[,] classX2, double[,] classX3, double[,] classX4, double[,] examen) : base(classX1, classX2, classX3,classX4)
         {
-            base.alg(25);
+            base.alg("consistent");
             this.examenBin = functions.BinMatrix(examen, limitDown, limitUp);
             base.algFind_K_KFE();
             this.examen = examen;

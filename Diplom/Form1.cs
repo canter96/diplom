@@ -63,6 +63,8 @@ namespace Diplom
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            button4.Enabled = false;
+            button5.Enabled = false;
             //OutInTextBox.txt1 = textBox1;
             //OutInTextBox.txt2 = textBox2;
             //OutInTextBox.txt3 = textBox3;
@@ -122,6 +124,7 @@ namespace Diplom
                 //outputGraphics.main(outputGraphics.chart5, bazAlgoritm.E_X5, "Кульбак", 5, bazAlgoritm.k1_X5, bazAlgoritm.k2_X5);
                 outputGraphics.Show();
                 parallel = false;
+                button4.Enabled = false;
             }
             else if (consistent == true)
             {
@@ -157,6 +160,7 @@ namespace Diplom
             outputGraphics.chart4.Series.Clear();
             outputGraphics.main(outputGraphics.chart1, optimization.E, "Паралельна оптимізація КД", 4, optimization.k1, optimization.k2);
             outputGraphics.Show();
+            button4.Enabled = true;
         }
         async void consistentAsync()
         {
@@ -175,14 +179,16 @@ namespace Diplom
 
             outputGraphics.GetGraph(outputGraphics.chart1, optimization.E_consistent_all, "Послідовна оптимізація КД", 4);
             outputGraphics.Show();
+            button5.Enabled = true;
         }
         private void button4_Click(object sender, EventArgs e)
-        {
+        {            
             consistentAsync();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+
             //Examen examen = new Examen(classX1, classX2, classX3, classX4, classX1);
             ExamenResult examenResult = new ExamenResult();
             examenResult.Show();
